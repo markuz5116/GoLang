@@ -4,6 +4,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"strings"
 )
 
 // There can only be one main functions, so that Golang knows which main to call
@@ -99,6 +100,10 @@ func learnFunction() {
 	radius := 4
 	area := getCircleArea(float64(radius))
 	fmt.Printf("%0.3f\n", area)
+
+	fullName := "marcus ong"
+	firstInitial, lastInitials := getInitials(fullName)
+	fmt.Printf("%v's initials: %v %v", fullName, firstInitial, lastInitials)
 }
 
 func sayGreeting(name string) {
@@ -113,4 +118,18 @@ func cycleNames(names []string, fnc func(string)) {
 
 func getCircleArea(radius float64) float64 {
 	return math.Pi * math.Pow(radius, 2)
+}
+
+func getInitials(fullName string) (string, string) {
+	fullName = strings.ToUpper(fullName)
+	initials := []string{}
+	for _, name := range strings.Split(fullName, " ") {
+		initials = append(initials, name[:1])
+	}
+
+	if len(initials) < 2 {
+		return initials[0], "_"
+	}
+
+	return initials[0], initials[len(initials)-1]
 }
