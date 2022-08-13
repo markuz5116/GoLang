@@ -1,11 +1,15 @@
 // If package is called main, it will create an executable
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+	"strings"
+)
 
 // There can only be one main functions, so that Golang knows which main to call
 func main() {
-	learnForLoops()
+	learnFunction()
 }
 
 func learnVars() {
@@ -84,6 +88,50 @@ func learnSlices() {
 	fmt.Printf("Start range slice: %v\n", startRange)
 	endRange := implicitSlice[1:]
 	fmt.Printf("End range slice: %v\n", endRange)
+}
+
+func learnFunction() {
+	name := "mong"
+	sayGreeting(name)
+
+	names := []string{"a", "b", "c"}
+	cycleNames(names, sayGreeting)
+
+	radius := 4
+	area := getCircleArea(float64(radius))
+	fmt.Printf("%0.3f\n", area)
+
+	fullName := "marcus ong"
+	firstInitial, lastInitials := getInitials(fullName)
+	fmt.Printf("%v's initials: %v %v", fullName, firstInitial, lastInitials)
+}
+
+func sayGreeting(name string) {
+	fmt.Printf("Hello %v\n", name)
+}
+
+func cycleNames(names []string, fnc func(string)) {
+	for _, name := range names {
+		fnc(name)
+	}
+}
+
+func getCircleArea(radius float64) float64 {
+	return math.Pi * math.Pow(radius, 2)
+}
+
+func getInitials(fullName string) (string, string) {
+	fullName = strings.ToUpper(fullName)
+	initials := []string{}
+	for _, name := range strings.Split(fullName, " ") {
+		initials = append(initials, name[:1])
+	}
+
+	if len(initials) < 2 {
+		return initials[0], "_"
+	}
+
+	return initials[0], initials[len(initials)-1]
 }
 
 func learnForLoops() {
