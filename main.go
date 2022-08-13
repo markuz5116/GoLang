@@ -5,10 +5,10 @@ import "fmt"
 
 // There can only be one main functions, so that Golang knows which main to call
 func main() {
-	learn_fmt()
+	learnSlices()
 }
 
-func learn_vars() {
+func learnVars() {
 	// string: ------------------------------------------------
 	// Declare variables: var {name} {type}
 	var explicitName string = "explicit string"
@@ -41,7 +41,7 @@ func learn_vars() {
 	fmt.Println(num8Unsigned)
 }
 
-func learn_fmt() {
+func learnFmt() {
 	name := "mong"
 	age := "24"
 
@@ -60,4 +60,29 @@ func learn_fmt() {
 	// Save formatted string --> Sprintf
 	savedStr := fmt.Sprintf("Saved: age: %v, name: %v", age, name)
 	fmt.Println(savedStr)
+}
+
+func learnArrays() {
+	var explicitArr [3]int = [3]int{1, 2, 3}
+	implicitArr := [3]int{1, 2, 3}
+
+	fmt.Println(explicitArr[1] + implicitArr[2])
+}
+
+func learnSlices() {
+	var explicitSlice []int = []int{1, 2, 3}
+	implicitSlice := []int{1, 2, 3}
+	explicitSlice = append(explicitSlice, 4)
+	implicitSlice = append([]int{0}, implicitSlice...)
+	fmt.Printf("Explicit slice: %v\n", explicitSlice)
+	fmt.Printf("Implicit slice: %v\n", implicitSlice)
+
+	// slice ranges: inclusive of first number but not the second
+	rangeSlice := implicitSlice[0:3]
+	fmt.Printf("Range slice: %v\n", rangeSlice)
+	startRange := implicitSlice[:3]
+	fmt.Printf("Start range slice: %v\n", startRange)
+	endRange := implicitSlice[1:]
+	fmt.Printf("End range slice: %v\n", endRange)
+
 }
