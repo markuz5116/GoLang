@@ -1,11 +1,14 @@
 // If package is called main, it will create an executable
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 // There can only be one main functions, so that Golang knows which main to call
 func main() {
-	learnSlices()
+	learnFunction()
 }
 
 func learnVars() {
@@ -84,5 +87,30 @@ func learnSlices() {
 	fmt.Printf("Start range slice: %v\n", startRange)
 	endRange := implicitSlice[1:]
 	fmt.Printf("End range slice: %v\n", endRange)
+}
 
+func learnFunction() {
+	name := "mong"
+	sayGreeting(name)
+
+	names := []string{"a", "b", "c"}
+	cycleNames(names, sayGreeting)
+
+	radius := 4
+	area := getCircleArea(float64(radius))
+	fmt.Printf("%0.3f\n", area)
+}
+
+func sayGreeting(name string) {
+	fmt.Printf("Hello %v\n", name)
+}
+
+func cycleNames(names []string, fnc func(string)) {
+	for _, name := range names {
+		fnc(name)
+	}
+}
+
+func getCircleArea(radius float64) float64 {
+	return math.Pi * math.Pow(radius, 2)
 }
