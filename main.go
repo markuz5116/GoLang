@@ -133,3 +133,31 @@ func getInitials(fullName string) (string, string) {
 
 	return initials[0], initials[len(initials)-1]
 }
+
+func learnForLoops() {
+	// for loop
+	count := 0
+	for i := 0; i < 10; i++ {
+		count += 1
+	}
+
+	// while loop
+	j := 10
+	for j > 0 {
+		count += 1
+		j -= 1
+	}
+	fmt.Println(count)
+
+	nums := []int{1, 2, 3, 4, 5}
+	total := 0
+	for i := 0; i < len(nums); i++ {
+		total += nums[i]
+	}
+
+	for _, val := range nums {
+		// val is a copy and not the actual value
+		total += val
+	}
+	fmt.Println(total)
+}
