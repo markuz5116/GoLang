@@ -9,7 +9,15 @@ import (
 
 // There can only be one main functions, so that Golang knows which main to call
 func main() {
-	learnFunction()
+	learnPackage()
+}
+
+func learnPackage() {
+	sayHello("Mario")
+
+	for idx, num := range greetingsNums {
+		fmt.Printf("%v: %v\n", idx, num)
+	}
 }
 
 func learnVars() {
