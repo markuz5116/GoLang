@@ -5,10 +5,10 @@ import "fmt"
 
 // There can only be one main functions, so that Golang knows which main to call
 func main() {
-	learn_fmt()
+	learnArrays()
 }
 
-func learn_vars() {
+func learnVars() {
 	// string: ------------------------------------------------
 	// Declare variables: var {name} {type}
 	var explicitName string = "explicit string"
@@ -41,7 +41,7 @@ func learn_vars() {
 	fmt.Println(num8Unsigned)
 }
 
-func learn_fmt() {
+func learnFmt() {
 	name := "mong"
 	age := "24"
 
@@ -60,4 +60,11 @@ func learn_fmt() {
 	// Save formatted string --> Sprintf
 	savedStr := fmt.Sprintf("Saved: age: %v, name: %v", age, name)
 	fmt.Println(savedStr)
+}
+
+func learnArrays() {
+	var explicitArr [3]int = [3]int{1, 2, 3}
+	implicitArr := [3]int{1, 2, 3}
+
+	fmt.Println(explicitArr[1] + implicitArr[2])
 }
