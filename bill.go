@@ -20,12 +20,18 @@ func createBill(name string, items map[string]float64, tip float64) bill {
 //	func createBill(name string) bill {
 //		return createBill(name, map[string]float64{}, 0)
 //	}
-func (b bill) updateItems(itemName string, price float64) bill {
+func (b *bill) updateItems(itemName string, price float64) *bill {
 	b.items[itemName] = price
 	return b
 }
 
-func (b bill) toString() string {
+// Go uses pass by value for struct too, hence use pointer of struct instead
+// For struct, pointers are automatically dereferenced.
+func (b *bill) updateTip(newTip float64) {
+	b.tip = newTip
+}
+
+func (b *bill) toString() string {
 	output := "Bill breakdown: \n"
 	total := 0.0
 

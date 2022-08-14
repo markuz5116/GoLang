@@ -17,6 +17,8 @@ func learnStruct() {
 		"a": 1.0,
 		"b": 2.0,
 	}, 0)
+	bill.updateItems("c", 3.0)
+	bill.updateTip(4.0)
 	fmt.Println(bill.toString())
 }
 
