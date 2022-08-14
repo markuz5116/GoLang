@@ -9,7 +9,12 @@ import (
 
 // There can only be one main functions, so that Golang knows which main to call
 func main() {
-	learnMaps()
+	learnStruct()
+}
+
+func learnStruct() {
+	bill := createBill("a", map[string]float64{}, 0)
+	fmt.Println(bill)
 }
 
 func learnMaps() {
