@@ -9,7 +9,7 @@ import (
 
 // There can only be one main functions, so that Golang knows which main to call
 func main() {
-	learnPackage()
+	learnPointer()
 }
 
 func learnPackage() {
