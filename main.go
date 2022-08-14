@@ -12,6 +12,15 @@ func main() {
 	learnPointer()
 }
 
+func learnMaps() {
+	fmt.Println(getMenu())
+	fmt.Println(getPrice("a"))
+	fmt.Println(toString())
+
+	fmt.Println(updateMenu("a", 2))
+	fmt.Println(updateMenu("d", 4))
+}
+
 func learnPackage() {
 	sayHello("Mario")
 
