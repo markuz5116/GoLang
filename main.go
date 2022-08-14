@@ -13,13 +13,15 @@ func main() {
 }
 
 func learnStruct() {
-	bill := createBill("a", map[string]float64{
-		"a": 1.0,
-		"b": 2.0,
-	}, 0)
-	bill.updateItems("c", 3.0)
-	bill.updateTip(4.0)
-	fmt.Println(bill.toString())
+	// bill := createBill("a", map[string]float64{
+	// 	"a": 1.0,
+	// 	"b": 2.0,
+	// }, 0)
+	// bill.updateItems("c", 3.0)
+	// bill.updateTip(4.0)
+	// fmt.Println(bill.toString())
+	b := createUserBill()
+	fmt.Println(b.toString())
 }
 
 func learnMaps() {
